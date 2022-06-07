@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ime zadatka</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+		<a class="logo" href="/"><img src="img/logoipsum-logo-6.svg" alt="logo"></a>
+		<nav>
+			<ul class="nav__links">
+				<li><a href="#">Services</a></li>
+				<li><a href="#">Projects</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+	
+		<p class="menu cta">Menu</p>
+	</header>
+	<div id="mobile__menu" class="overlay">
+		<a class="close">&times;</a>
+		<div class="overlay__content">
+			<a href="#">Services</a>
+			<a href="#">Projects</a>
+			<a href="#">About</a>
+		</div>
+	</div>
+	<!-- ostatak koda ovde -->
+	<script type="text/javascript" src="mobile.js"></script>
+	<script type="text/javascript">
+		let thumbnails = document.getElementsByClassName('thumbnail')
+
+		let activeImages = document.getElementsByClassName('active')
+
+		for (var i=0; i < thumbnails.length; i++){
+
+			thumbnails[i].addEventListener('mouseover', function(){
+				console.log(activeImages)
+				
+				if (activeImages.length > 0){
+					activeImages[0].classList.remove('active')
+				}
+				
+
+				this.classList.add('active')
+				document.getElementById('featured').src = this.src
+			})
+		}
+
+
+		let buttonRight = document.getElementById('slideRight');
+		let buttonLeft = document.getElementById('slideLeft');
+
+		buttonLeft.addEventListener('click', function(){
+			document.getElementById('slider').scrollLeft -= 180
+		})
+
+		buttonRight.addEventListener('click', function(){
+			document.getElementById('slider').scrollLeft += 180
+		})
+
+
+	</script>
+
+</body>
+</html>
